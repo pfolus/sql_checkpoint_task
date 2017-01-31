@@ -87,6 +87,7 @@ This function should __return__ full address as a string in the following form:
 #### Attributes:
 
 * `name` - name of the address book
+* `addresses` - list containing addresses (`Address` or `WorkAddress` objects)
 
 #### Methods
 
