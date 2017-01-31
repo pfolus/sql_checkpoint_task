@@ -121,4 +121,7 @@ Create `create_from_csv` static method in `AddressBook` class. It should take
 
 This method should return `AddressBook` instance with list of items from
 CSV file.
+
+First row in CSV file contains column headers
+
 Let's assume that csv files contains only normal addresses (not work addresses)
