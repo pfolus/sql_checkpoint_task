@@ -43,6 +43,7 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.add_addresses_to_book()
         expected_string = "1. Jan Kowalski, Kraków, ul. Daszyńskiego 15/31\n" \
                           "2. Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.\n"
+        self.my_book.print_addresses()
         output = sys.stdout.getvalue().strip()
         self.assertEqual(output, expected_string)
 
