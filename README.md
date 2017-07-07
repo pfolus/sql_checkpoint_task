@@ -131,4 +131,4 @@ CSV file.
 
 First row in CSV file contains column headers
 
-Let's assume that csv files contains only normal addresses (not work addresses)
+Have in mind that CSV file could contain both home and work addresses.
