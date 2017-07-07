@@ -120,7 +120,7 @@ Parameters:
 # 2nd part
 ### `create_from_csv`
 
-Create `create_from_csv` static method in `AddressBook` class. It should take
+Write `create_from_csv` method in `AddressBook` class. It should take
 2 parameters:
 
 * `list_name` - name of todo list
@@ -132,3 +132,6 @@ CSV file.
 First row in CSV file contains column headers
 
 Have in mind that CSV file could contain both home and work addresses.
+
+### `save_to_csv`
+Write `save_to_csv` method in AddressBook that saves all addresses in address book to a .csv file named `list_name`.csv
