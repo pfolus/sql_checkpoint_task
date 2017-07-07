@@ -110,6 +110,13 @@ Function should print out all addresses in the address book. Output should look 
 2. Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.
 ```
 
+##### `find`
+Searches through address book for a given phrase and returns a list of matching objects.
+
+Parameters:
+* `search_phrase` - string, that we're looking for
+
+
 # 2nd part
 ### `create_from_csv`
 
