@@ -45,6 +45,23 @@ class TestCheckpointExcersise(unittest.TestCase):
         with self.assertRaises(TypeError, msg="Test dupy się nie powiódł ;("):
             book.add_address("dupa")
 
+    def test_address_book_find_returns_empty(self):
+        self.add_addresses_to_book()
+        self.assertListEqual([], self.my_book.find("XXX"),  msg="Should return empty list")
+
+    def test_address_book_find_returns_one(self):
+        self.add_addresses_to_book()
+        expected = []
+        expected.append(self.my_book.addresses[0])
+        actual = self.my_book.find("Kraków")
+        self.assertListEqual(expected, actual)
+
+    def test_address_book_find_returns_many(self):
+        self.add_addresses_to_book()
+        expected = self.my_book.addresses
+        actual = self.my_book.find("ski")
+        self.assertListEqual(expected, actual)
+
     # 2nd part tests
 
     def test_create_from_csv(self):
