@@ -1,12 +1,11 @@
 import unittest
 import sys
 
-from address_book import AddressBook
-from address import Address
-from work_address import WorkAddress
 
 class TestCheckpointExcersise(unittest.TestCase):
     def setUp(self):
+        from address import Address
+        from work_address import WorkAddress
         self.address1 = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
         self.work1 = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
 
@@ -32,6 +31,7 @@ class TestCheckpointExcersise(unittest.TestCase):
     # AddressBook
 
     def test_address_book_name(self):
+        from address_book import AddressBook
         self.my_book = AddressBook("friends")
         self.assertEqual("friends", self.my_book.name)
 
@@ -42,6 +42,7 @@ class TestCheckpointExcersise(unittest.TestCase):
     # 2nd part tests
 
     def test_create_from_csv(self):
+        from address_book import AddressBook
         book = AddressBook.create_from_csv("List name", "addresses.csv")
         self.assertIsInstance(book, AddressBook)
         self.assertEqual(4, len(book.addresses))
