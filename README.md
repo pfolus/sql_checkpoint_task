@@ -41,7 +41,7 @@ Mordor sp. z o.o.
 ```
 
 # Specification
-Below you'll find specifications of classes that you should implement in order to pass the tests. Have in mind that this specification does not contain implementation details. It is your responsibility to decide which methods should be static or where to use inheritance and so on.
+Below you'll find specifications of classes that you should implement in order to pass the tests. Have in mind that this specification does not contain implementation details. It is your responsibility to decide which methods should be static or where to use inheritance and so on. Remember that you can and even should implement more classes to make your code better.
 
 Specification is divided into three parts. We strongly recommend to do them in given order. Doing so will guarantee that you deliver something before the deadline.
 
