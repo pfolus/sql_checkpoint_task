@@ -14,9 +14,9 @@ What would you like to do?
   1. Create new address book
   2. Open address book from file
   0. Exit
-Option: 1
+Option: 2
 
-Please provide a name of a new address book:
+Please provide a name of an address book:
 Friends
 
 **Friends**
@@ -156,3 +156,15 @@ Have in mind that CSV file could contain both home and work addresses.
 Write `save_to_csv` method in AddressBook that saves all addresses in address book to a .csv file named `list_name`.csv
 
 ## 3rd part - user interface
+### main menu
+* `1. Create new address book` - asks for address book name and creates a new one, starts Address book menu.
+* `2. Open address book from file` - asks for address book name, loads address book from file, starts Address book menu
+* `0. Exit` - closes the program
+
+### address book menu
+* `1. List addresses` - displays all addresses
+* `2. Add a new address` - asks for a new address data and adds it to the address book
+* `3. Remove an address` - asks which address should be removed and removes it
+* `4. Search for an address` - asks for a search phrase and than displays all matching addresses
+* `5. Save this address book` - saves address book to a file named `name`.csv
+* `0. Back to main menu` - moves back to main menu
