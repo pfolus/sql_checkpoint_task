@@ -121,14 +121,6 @@ Adds given `Address` or `WorkAddress` to the list of addresses
 Parameters:
 * `address` - `Address` or `WorkAddress` object
 
-##### `print_addresses`
-
-Function should print out all addresses in the address book. Output should look like this:
-```
-1. Jan Kowalski, Kraków, ul. Daszyńskiego 15/31
-2. Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.
-```
-
 ##### `find`
 Searches through address book for a given phrase and returns a list of matching objects.
 
