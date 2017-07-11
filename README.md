@@ -116,7 +116,7 @@ Parameters:
 * `name` - name of the address book
 
 ##### `add_address`
-Adds given `Address` or `WorkAddress` to the list of addresses
+Adds given `Address` or `WorkAddress` to the list of addresses. Raises TypeError when something else is added.
 
 Parameters:
 * `address` - `Address` or `WorkAddress` object

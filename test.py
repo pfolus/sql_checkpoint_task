@@ -39,6 +39,12 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.add_addresses_to_book()
         self.assertEqual(2, len(self.my_book.addresses))
 
+    def test_address_book_type_error(self):
+        from address_book import AddressBook
+        book = AddressBook("Test")
+        with self.assertRaises(TypeError, msg="Test dupy się nie powiódł ;("):
+            book.add_address("dupa")
+
     # 2nd part tests
 
     def test_create_from_csv(self):
