@@ -55,6 +55,7 @@ class TestCheckpointExcersise(unittest.TestCase):
 
     # helper methods
     def add_addresses_to_book(self):
+        from address_book import AddressBook
         self.my_book = AddressBook("friends")
         self.my_book.add_address(self.address1)
         self.my_book.add_address(self.work1)
