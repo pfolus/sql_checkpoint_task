@@ -2,31 +2,50 @@
 
 ## Final result expectation
 
-When your program is done you should be able to do following in Python console.
+Console application that allows user to manage his contacts.
 
-```python
->>> from address_book import AddressBook
->>> from address import Address
->>> from work_address import WorkAddress
+Sample usage:
+```
+$python main.py
 
->>> address1 = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
->>> address1.get_full_address()
-'Jan Kowalski, Kraków, ul. Daszyńskiego 15/31'
+Welcome to your Awesome OOP Address Book Manager!
 
->>> work1 = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+What would you like to do?
+  1. Create new address book
+  2. Open address book from file
+  0. Exit
+Option: 1
 
->>> work1.get_full_address()
-'Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.'
+Please provide a name of a new address book:
+Friends
 
->>> my_book = AddressBook("friends")
->>> my_book.add_address(address1)
->>> my_book.add_address(work1)
->>> my_book.print_addresses()
-1. Jan Kowalski, Kraków, ul. Daszyńskiego 15/31
-2. Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.
+**Friends**
+What would you like to do?
+  1. List addresses
+  2. Add a new address
+  3. Remove an address
+  4. Search for an address
+  5. Save this address book
+  0. Back to main menu
+Option: 1
+
+Address List:
+==============#1==============
+Jan Kowalski,
+Kraków, ul. Daszyńskiego 15/31
+==============#2==============
+Adam Adamski,
+Warszawa, ul. Domaniewska 6/66,
+Mordor sp. z o.o.
+==============================
 ```
 
-## 1st part
+# Specification
+Below you'll find specifications of classes that you should implement in order to pass the tests. Have in mind that this specification does not contain implementation details. It is your responsibility to decide which methods should be static or where to use inheritance and so on.
+
+Specification is divided into three parts. We strongly recommend to do them in given order. Doing so will guarantee that you deliver something before the deadline.
+
+## 1st part - classes
 
 ### `Address` class
 
@@ -117,7 +136,7 @@ Parameters:
 * `search_phrase` - string, that we're looking for
 
 
-# 2nd part
+## 2nd part - persistence
 ### `create_from_csv`
 
 Write `create_from_csv` method in `AddressBook` class. It should take
@@ -135,3 +154,5 @@ Have in mind that CSV file could contain both home and work addresses.
 
 ### `save_to_csv`
 Write `save_to_csv` method in AddressBook that saves all addresses in address book to a .csv file named `list_name`.csv
+
+## 3rd part - user interface
