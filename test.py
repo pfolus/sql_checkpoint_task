@@ -1,6 +1,6 @@
 import unittest
 import sys
-
+import os
 
 class TestCheckpointExcersise(unittest.TestCase):
     def setUp(self):
@@ -95,11 +95,42 @@ class TestCheckpointExcersise(unittest.TestCase):
 
     # 2nd part tests
 
-    def test_create_from_csv(self):
+    def test_create_from_csv_length(self):
         from address_book import AddressBook
-        book = AddressBook.create_from_csv("List name", "addresses.csv")
+        book = AddressBook.create_from_csv("book_name", "addresses.csv")
         self.assertIsInstance(book, AddressBook)
-        self.assertEqual(4, len(book.addresses))
+        self.assertEqual(5, len(book.addresses))
+
+    def test_create_from_csv_name(self):
+        from address_book import AddressBook
+        book_name = "book_name"
+        book = AddressBook.create_from_csv("book_name", "addresses.csv")
+        self.assertEqual("book_name", book.name)
+
+    def test_create_from_csv_addresses(self):
+        from address_book import AddressBook
+        expected = self.create_address_list()
+        book = AddressBook.create_from_csv("book_name", "addresses.csv")
+        actual = book.addresses
+        self.assertListEqual(expected, actual)
+
+    def test_save_to_csv(self):
+        from address_book import AddressBook
+        book_name = "book_name"
+        book = AddressBook.create_from_csv("book_name", "addresses.csv")
+
+        # remove old file so that we have a guarantee that a file is generated
+        try:
+            os.remove(book.name + ".csv")
+        except:
+            pass
+
+        book.save_to_csv()
+
+        with open("addresses.csv") as original, open(book.name + ".csv") as copy:
+            are_equal = original.readlines() == copy.readlines()
+
+        self.assertTrue(are_equal, msg="Loaded and saved files are not equal")
 
     # helper methods
     def add_addresses_to_book(self):
@@ -107,6 +138,20 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.my_book = AddressBook("friends")
         self.my_book.add_address(self.address1)
         self.my_book.add_address(self.work1)
+
+    def create_address_list(self):
+        from address_book import AddressBook
+        from address import Address
+        from work_address import WorkAddress
+
+        expected = []
+        expected.append(Address("Jane Weaver", "Tugusirna", "Rowland", "1877", "2"))
+        expected.append(Address("Rebecca Cunningham", "Murzuq", "Heffernan", "2", "3"))
+        expected.append(Address("Steven Pierce", "Matsena", "Mariners Cove", "153", "4"))
+        expected.append(WorkAddress("Jerzy Mardaus", "Kraków", "Ślusarska", "9", "1", "Codecool Poland Sp. z o.o."))
+        expected.append(Address("Betty Jenkins", "Tirmiz", "Hollow Ridge", "011", "5"))
+
+        return expected
 
 if __name__ == '__main__':
     unittest.main(module=__name__, buffer=True, exit=False)
