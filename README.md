@@ -70,8 +70,17 @@ Parameters:
 
 ##### `get_full_address`
 
-This function should __return__ full address as a string in the following form:
+This method should __return__ full address as a string in the following form:
 `{owner}, {city}, {street} {house_no}/{flat_no}`
+
+##### `__eq__`
+
+This method should compare an instance of Address with other Address object using its attributes and return True if addresses are equal
+
+Parameters:
+* `self` - first Address object
+* `other` - second Address object
+
 
 ### `WorkAddress` class
 
@@ -98,8 +107,16 @@ Parameters:
 
 ##### `get_full_address`
 
-This function should __return__ full address as a string in the following form:
+This method should __return__ full address as a string in the following form:
 `{owner}, {city}, {street} {house_no}/{flat_no}, {company}`
+
+##### `__eq__`
+
+This method should compare an instance of WorkAddress with other WorkAddress object using its attributes and return True if addresses are equal
+
+Parameters:
+* `self` - first WorkAddress object
+* `other` - second WorkAddress object
 
 ### `AddressBook` class
 
@@ -134,7 +151,7 @@ Parameters:
 Write `create_from_csv` method in `AddressBook` class. It should take
 2 parameters:
 
-* `list_name` - name of todo list
+* `list_name` - name of the address book
 * `csv_path` - path to CSV file
 
 This method should return `AddressBook` instance with list of items from
