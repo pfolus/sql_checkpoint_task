@@ -28,6 +28,37 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.assertEqual('Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.',
                          self.work1.get_full_address())
 
+    def test_address_eq(self):
+        from address import Address
+        first = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
+        second = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
+        self.assertEqual(first, second)
+
+    def test_address_not_eq(self):
+        from address import Address
+        first = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
+        second = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "16", "31")
+        self.assertNotEqual(first, second)
+
+    def test_work_address_eq(self):
+        from work_address import WorkAddress
+        first = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        second = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        self.assertEqual(first, second)
+
+    def test_work_address_not_eq(self):
+        from work_address import WorkAddress
+        first = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        second = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Hobbit sp. z o.o.")
+        self.assertNotEqual(first, second)
+
+    def test_work_and_address_not_eq(self):
+        from address import Address
+        from work_address import WorkAddress
+        first = Address("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66")
+        second = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Hobbit sp. z o.o.")
+        self.assertNotEqual(first, second)
+
     # AddressBook
 
     def test_address_book_name(self):
