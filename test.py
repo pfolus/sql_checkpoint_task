@@ -2,12 +2,15 @@ import unittest
 import sys
 import os
 
+
 class TestCheckpointExcersise(unittest.TestCase):
     def setUp(self):
         from address import Address
         from work_address import WorkAddress
-        self.address1 = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
-        self.work1 = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        self.address1 = Address("Jan Kowalski", "Kraków",
+                                "ul. Daszyńskiego", "15", "31")
+        self.work1 = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska",
+                                 "6", "66", "Mordor sp. z o.o.")
 
     # Addreses tests
 
@@ -25,38 +28,50 @@ class TestCheckpointExcersise(unittest.TestCase):
                          self.address1.get_full_address())
 
     def test_get_full_work_address(self):
-        self.assertEqual('Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.',
+        self.assertEqual(
+                         'Adam Adamski, Warszawa, ul.' +
+                         ' Domaniewska 6/66, Mordor sp. z o.o.',
                          self.work1.get_full_address())
 
     def test_address_eq(self):
         from address import Address
-        first = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
-        second = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
+        first = Address("Jan Kowalski", "Kraków",
+                        "ul. Daszyńskiego", "15", "31")
+        second = Address("Jan Kowalski", "Kraków",
+                         "ul. Daszyńskiego", "15", "31")
         self.assertEqual(first, second)
 
     def test_address_not_eq(self):
         from address import Address
-        first = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15", "31")
-        second = Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "16", "31")
+        first = Address("Jan Kowalski", "Kraków",
+                        "ul. Daszyńskiego", "15", "31")
+        second = Address("Jan Kowalski", "Kraków",
+                         "ul. Daszyńskiego", "16", "31")
         self.assertNotEqual(first, second)
 
     def test_work_address_eq(self):
         from work_address import WorkAddress
-        first = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
-        second = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        first = WorkAddress("Adam Adamski", "Warszawa",
+                            "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        second = WorkAddress("Adam Adamski", "Warszawa",
+                             "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
         self.assertEqual(first, second)
 
     def test_work_address_not_eq(self):
         from work_address import WorkAddress
-        first = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
-        second = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Hobbit sp. z o.o.")
+        first = WorkAddress("Adam Adamski", "Warszawa",
+                            "ul. Domaniewska", "6", "66", "Mordor sp. z o.o.")
+        second = WorkAddress("Adam Adamski", "Warszawa",
+                             "ul. Domaniewska", "6", "66", "Hobbit sp. z o.o.")
         self.assertNotEqual(first, second)
 
     def test_work_and_address_not_eq(self):
         from address import Address
         from work_address import WorkAddress
-        first = Address("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66")
-        second = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska", "6", "66", "Hobbit sp. z o.o.")
+        first = Address("Adam Adamski", "Warszawa",
+                        "ul. Domaniewska", "6", "66")
+        second = WorkAddress("Adam Adamski", "Warszawa",
+                             "ul. Domaniewska", "6", "66", "Hobbit sp. z o.o.")
         self.assertNotEqual(first, second)
 
     # AddressBook
@@ -78,7 +93,8 @@ class TestCheckpointExcersise(unittest.TestCase):
 
     def test_address_book_find_returns_empty(self):
         self.add_addresses_to_book()
-        self.assertListEqual([], self.my_book.find("XXX"),  msg="Should return empty list")
+        self.assertListEqual([], self.my_book.find("XXX"),
+                             msg="Should return empty list")
 
     def test_address_book_find_returns_one(self):
         self.add_addresses_to_book()
@@ -127,8 +143,8 @@ class TestCheckpointExcersise(unittest.TestCase):
 
         book.save_to_csv()
 
-        with open("addresses.csv") as original, open(book.name + ".csv") as copy:
-            are_equal = original.readlines() == copy.readlines()
+        with open("addresses.csv") as org, open(book.name + ".csv") as copy:
+            are_equal = org.readlines() == copy.readlines()
 
         self.assertTrue(are_equal, msg="Loaded and saved files are not equal")
 
@@ -145,11 +161,17 @@ class TestCheckpointExcersise(unittest.TestCase):
         from work_address import WorkAddress
 
         expected = []
-        expected.append(Address("Jane Weaver", "Tugusirna", "Rowland", "1877", "2"))
-        expected.append(Address("Rebecca Cunningham", "Murzuq", "Heffernan", "2", "3"))
-        expected.append(Address("Steven Pierce", "Matsena", "Mariners Cove", "153", "4"))
-        expected.append(WorkAddress("Jerzy Mardaus", "Kraków", "Ślusarska", "9", "1", "Codecool Poland Sp. z o.o."))
-        expected.append(Address("Betty Jenkins", "Tirmiz", "Hollow Ridge", "011", "5"))
+        expected.append(Address("Jane Weaver", "Tugusirna",
+                                "Rowland", "1877", "2"))
+        expected.append(Address("Rebecca Cunningham", "Murzuq",
+                                "Heffernan", "2", "3"))
+        expected.append(Address("Steven Pierce", "Matsena",
+                                "Mariners Cove", "153", "4"))
+        expected.append(WorkAddress("Jerzy Mardaus", "Kraków",
+                                    "Ślusarska", "9", "1",
+                                    "Codecool Poland Sp. z o.o."))
+        expected.append(Address("Betty Jenkins", "Tirmiz",
+                                "Hollow Ridge", "011", "5"))
 
         return expected
 
