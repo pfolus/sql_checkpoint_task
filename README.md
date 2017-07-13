@@ -30,14 +30,8 @@ What would you like to do?
 Option: 1
 
 Address List:
-==============#1==============
-Jan Kowalski,
-Kraków, ul. Daszyńskiego 15/31
-==============#2==============
-Adam Adamski,
-Warszawa, ul. Domaniewska 6/66,
-Mordor sp. z o.o.
-==============================
+#1 - Jan Kowalski, Kraków, ul. Daszyńskiego 15/31
+#2 - Adam Adamski, Warszawa, ul. Domaniewska 6/66, Mordor sp. z o.o.
 ```
 
 # Specification
