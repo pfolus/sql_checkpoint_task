@@ -98,8 +98,7 @@ class TestCheckpointExcersise(unittest.TestCase):
 
     def test_address_book_find_returns_one(self):
         self.add_addresses_to_book()
-        expected = []
-        expected.append(self.my_book.addresses[0])
+        expected = [self.my_book.addresses[0]]
         actual = self.my_book.find("Kraków")
         self.assertListEqual(expected, actual)
 
@@ -108,6 +107,13 @@ class TestCheckpointExcersise(unittest.TestCase):
         expected = self.my_book.addresses
         actual = self.my_book.find("ski")
         self.assertListEqual(expected, actual)
+
+    def test_address_book_find_case_insensitive(self):
+        self.add_addresses_to_book()
+        expected = [self.my_book.addresses[1]]
+        actual = self.my_book.find("adam")
+        self.assertListEqual(expected, actual,
+                             msg="Search should be case insensitive")
 
     # 2nd part tests
 

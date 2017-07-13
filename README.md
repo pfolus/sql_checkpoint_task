@@ -139,7 +139,7 @@ Parameters:
 * `address` - `Address` or `WorkAddress` object
 
 ##### `find`
-Searches through address book for a given phrase and returns a list of matching objects.
+Searches through address book for a given phrase and returns a list of matching objects. This method should be case insensitive.
 
 Parameters:
 * `search_phrase` - string, that we're looking for
