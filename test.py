@@ -182,4 +182,4 @@ class TestCheckpointExcersise(unittest.TestCase):
         return expected
 
 if __name__ == '__main__':
-    unittest.main(module=__name__, buffer=True, exit=False)
+    unittest.main(module=__name__, verbosity=2, buffer=True, exit=False)
