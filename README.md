@@ -49,7 +49,6 @@ Specification is divided into three parts. We strongly recommend to do them in g
 * `city` - string, city name
 * `street` - string, street name
 * `house_no` - string, house number
-* `flat_no` - string, flat number
 
 #### Methods
 
@@ -60,12 +59,11 @@ Parameters:
 * `city` - string, city name
 * `street` - string, street name
 * `house_no` - string, house number
-* `flat_no` - string, flat number
 
 ##### `get_full_address`
 
 This method should __return__ full address as a string in the following form:
-`{owner}, {city}, {street} {house_no}/{flat_no}`
+`{owner}, {city}, {street} {house_no}
 
 ##### `__eq__`
 
@@ -84,7 +82,6 @@ Parameters:
 * `city` - string, city name
 * `street` - string, street name
 * `house_no` - string, house number
-* `flat_no` - string, flat number
 * `company` - string, name of the company
 
 #### Methods
@@ -96,13 +93,12 @@ Parameters:
 * `city` - string, city name
 * `street` - string, street name
 * `house_no` - string, house number
-* `flat_no` - string, flat number
 * `company` - string, name of the company
 
 ##### `get_full_address`
 
 This method should __return__ full address as a string in the following form:
-`{owner}, {city}, {street} {house_no}/{flat_no}, {company}`
+`{owner}, {city}, {street} {house_no}, {company}`
 
 ##### `__eq__`
 
