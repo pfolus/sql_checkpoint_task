@@ -11,23 +11,11 @@ class TestCheckpointExcersise(unittest.TestCase):
     def test_step01_address_person(self):
         self.assertEqual("Jan Kowalski", self.get_address().person)
 
-    def test_step02_work_address_person(self):
-        self.assertEqual("Adam Adamski", self.get_work_address().person)
-
-    def test_step03_company(self):
-        self.assertEqual("Mordor sp. z o.o.", self.get_work_address().company)
-
-    def test_step04_get_full_address(self):
+    def test_step02_get_full_address(self):
         self.assertEqual('Jan Kowalski, Kraków, ul. Daszyńskiego 15/31',
                          self.get_address().get_full_address())
 
-    def test_step05_get_full_work_address(self):
-        self.assertEqual(
-                         'Adam Adamski, Warszawa, ul.' +
-                         ' Domaniewska 6/66, Mordor sp. z o.o.',
-                         self.get_work_address().get_full_address())
-
-    def test_step06_address_eq(self):
+    def test_step03_address_eq(self):
         from address import Address
         first = Address("Jan Kowalski", "Kraków",
                         "ul. Daszyńskiego", "15/31")
@@ -35,13 +23,25 @@ class TestCheckpointExcersise(unittest.TestCase):
                          "ul. Daszyńskiego", "15/31")
         self.assertEqual(first, second)
 
-    def test_step07_address_not_eq(self):
+    def test_step04_address_not_eq(self):
         from address import Address
         first = Address("Jan Kowalski", "Kraków",
                         "ul. Daszyńskiego", "15/31")
         second = Address("Jan Kowalski", "Kraków",
                          "ul. Daszyńskiego", "16/31")
         self.assertNotEqual(first, second)
+
+    def test_step05_work_address_person(self):
+        self.assertEqual("Adam Adamski", self.get_work_address().person)
+
+    def test_step06_company(self):
+        self.assertEqual("Mordor sp. z o.o.", self.get_work_address().company)
+
+    def test_step07_get_full_work_address(self):
+        self.assertEqual(
+                         'Adam Adamski, Warszawa, ul.' +
+                         ' Domaniewska 6/66, Mordor sp. z o.o.',
+                         self.get_work_address().get_full_address())
 
     def test_step08_work_address_eq(self):
         from work_address import WorkAddress
