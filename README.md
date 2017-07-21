@@ -71,7 +71,7 @@ Parameters:
 ##### `get_full_address`
 
 This method should __return__ full address as a string in the following form:
-`{owner}, {city}, {street} {house_no}`
+`{person}, {city}, {street} {house_no}`
 
 ##### `__eq__`
 
@@ -106,7 +106,7 @@ Parameters:
 ##### `get_full_address`
 
 This method should __return__ full address as a string in the following form:
-`{owner}, {city}, {street} {house_no}, {company}`
+`{person}, {city}, {street} {house_no}, {company}`
 
 ##### `__eq__`
 
