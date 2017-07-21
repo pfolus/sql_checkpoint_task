@@ -71,7 +71,7 @@ Parameters:
 ##### `get_full_address`
 
 This method should __return__ full address as a string in the following form:
-`{owner}, {city}, {street} {house_no}
+`{owner}, {city}, {street} {house_no}`
 
 ##### `__eq__`
 
@@ -151,16 +151,14 @@ Sorts addresses in `addresses` list alphabetically by full address in ascending 
 ## 2nd part - persistence
 ### `create_from_csv`
 
-Write `create_from_csv` method in `AddressBook` class. It should take
-2 parameters:
+Write `create_from_csv` method in `AddressBook` class. It should take 2 parameters:
 
-* `list_name` - name of the address book
-* `csv_path` - path to CSV file
+* `list_name` - name of the address book.
+* `csv_path` - path to CSV file.
 
-This method should return `AddressBook` instance with list of items from
-CSV file.
+This method should return `AddressBook` instance with list of items from CSV file.
 
-First row in CSV file contains column headers
+First row in CSV file contains column headers.
 
 Have in mind that CSV file could contain both home and work addresses.
 
@@ -172,13 +170,13 @@ Write `save_to_csv` method in AddressBook that saves all addresses in address bo
 ## 3rd part - user interface - optional
 ### main menu
 * `1. Create new address book` - asks for address book name and creates a new one, starts Address book menu.
-* `2. Open address book from file` - asks for address book name, loads address book from file, starts Address book menu
-* `0. Exit` - closes the program
+* `2. Open address book from file` - asks for address book name, loads address book from file, starts Address book menu.
+* `0. Exit` - closes the program.
 
 ### address book menu
-* `1. List addresses` - displays all addresses
-* `2. Add a new address` - asks for a new address data and adds it to the address book
-* `3. Remove an address` - asks which address should be removed and removes it
-* `4. Search for an address` - asks for a search phrase and than displays all matching addresses
-* `5. Save this address book` - saves address book to a file named `name`.csv
-* `0. Back to main menu` - moves back to main menu
+* `1. List addresses` - displays all addresses.
+* `2. Add a new address` - asks for a new address data and adds it to the address book.
+* `3. Remove an address` - asks which address should be removed and removes it.
+* `4. Search for an address` - asks for a search phrase and than displays all matching addresses.
+* `5. Save this address book` - saves address book to a file named `name`.csv.
+* `0. Back to main menu` - moves back to main menu.
