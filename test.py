@@ -5,34 +5,27 @@ import copy
 
 
 class TestCheckpointExcersise(unittest.TestCase):
-    def setUp(self):
-        from address import Address
-        from work_address import WorkAddress
-        self.address1 = Address("Jan Kowalski", "Kraków",
-                                "ul. Daszyńskiego", "15/31")
-        self.work1 = WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska",
-                                 "6/66", "Mordor sp. z o.o.")
 
     # Addreses tests
 
     def test_address_person(self):
-        self.assertEqual("Jan Kowalski", self.address1.person)
+        self.assertEqual("Jan Kowalski", self.get_address().person)
 
     def test_work_address_person(self):
-        self.assertEqual("Adam Adamski", self.work1.person)
+        self.assertEqual("Adam Adamski", self.get_work_address().person)
 
     def test_company(self):
-        self.assertEqual("Mordor sp. z o.o.", self.work1.company)
+        self.assertEqual("Mordor sp. z o.o.", self.get_work_address().company)
 
     def test_get_full_address(self):
         self.assertEqual('Jan Kowalski, Kraków, ul. Daszyńskiego 15/31',
-                         self.address1.get_full_address())
+                         self.get_address().get_full_address())
 
     def test_get_full_work_address(self):
         self.assertEqual(
                          'Adam Adamski, Warszawa, ul.' +
                          ' Domaniewska 6/66, Mordor sp. z o.o.',
-                         self.work1.get_full_address())
+                         self.get_work_address().get_full_address())
 
     def test_address_eq(self):
         from address import Address
@@ -120,7 +113,7 @@ class TestCheckpointExcersise(unittest.TestCase):
         import address_book
         address_book.sorted = None  # remove sorted function
         self.add_addresses_to_book()
-        expected = [self.work1, self.address1]
+        expected = [self.get_work_address(), self.get_address()]
         self.my_book.sort()
         self.assertListEqual(expected, self.my_book.addresses)
 
@@ -180,11 +173,21 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.assertTrue(are_equal, msg="Loaded and saved files are not equal")
 
     # helper methods
+    def get_address(self):
+        from address import Address
+        return Address("Jan Kowalski", "Kraków", "ul. Daszyńskiego", "15/31")
+
+    def get_work_address(self):
+        from work_address import WorkAddress
+        return WorkAddress("Adam Adamski", "Warszawa", "ul. Domaniewska",
+                           "6/66", "Mordor sp. z o.o.")
+
+
     def add_addresses_to_book(self):
         from address_book import AddressBook
         self.my_book = AddressBook("friends")
-        self.my_book.add_address(self.address1)
-        self.my_book.add_address(self.work1)
+        self.my_book.add_address(self.get_address())
+        self.my_book.add_address(self.get_work_address())
 
     def create_address_book(self):
         from address_book import AddressBook
