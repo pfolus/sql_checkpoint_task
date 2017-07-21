@@ -144,7 +144,7 @@ Parameters:
 
 
 ##### `sort`
-Sorts addresses in `addresses` list alphabetically. You should implement your own sorting algorithm. Don't use built in `sort` and `sorted` functions.
+Sorts addresses in `addresses` list alphabetically by full address in ascending order. You should implement your own sorting algorithm. Don't use built in `sort` and `sorted` functions.
 
 ### _please git push now_
 
