@@ -1,6 +1,7 @@
 import unittest
 import sys
 import os
+import copy
 
 
 class TestCheckpointExcersise(unittest.TestCase):
@@ -115,6 +116,30 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.assertListEqual(expected, actual,
                              msg="Search should be case insensitive")
 
+    def test_sort(self):
+        import address_book
+        address_book.sorted = None  # remove sorted function
+        self.add_addresses_to_book()
+        expected = [self.work1, self.address1]
+        self.my_book.sort()
+        self.assertListEqual(expected, self.my_book.addresses)
+
+    def test_sort_2(self):
+        import address_book
+        address_book.sorted = None  # remove sorted function
+        expected = self.create_address_book()
+        actual = copy.deepcopy(expected)
+        actual.sort()
+        expected.sort()
+        self.assertListEqual(expected.addresses, actual.addresses)
+
+    def test_builtin_sort(self):
+        with open("address_book.py", "r") as f:
+            content = f.read()
+            self.assertEqual(content.find("addresses.sort"), -1,
+                             msg="Don't use built in sort function!")
+
+
     # 2nd part tests
 
     def test_create_from_csv_length(self):
@@ -131,7 +156,7 @@ class TestCheckpointExcersise(unittest.TestCase):
 
     def test_create_from_csv_addresses(self):
         from address_book import AddressBook
-        expected = self.create_address_list()
+        expected = self.create_address_book().addresses
         book = AddressBook.create_from_csv("book_name", "addresses.csv")
         actual = book.addresses
         self.assertListEqual(expected, actual)
@@ -161,23 +186,23 @@ class TestCheckpointExcersise(unittest.TestCase):
         self.my_book.add_address(self.address1)
         self.my_book.add_address(self.work1)
 
-    def create_address_list(self):
+    def create_address_book(self):
         from address_book import AddressBook
         from address import Address
         from work_address import WorkAddress
 
-        expected = []
-        expected.append(Address("Jane Weaver", "Tugusirna",
-                                "Rowland", "1877/2"))
-        expected.append(Address("Rebecca Cunningham", "Murzuq",
-                                "Heffernan", "2/3"))
-        expected.append(Address("Steven Pierce", "Matsena",
-                                "Mariners Cove", "153/4"))
-        expected.append(WorkAddress("Jerzy Mardaus", "Kraków",
-                                    "Ślusarska", "9/1",
-                                    "Codecool Poland Sp. z o.o."))
-        expected.append(Address("Betty Jenkins", "Tirmiz",
-                                "Hollow Ridge", "011/5"))
+        expected = AddressBook("expected")
+        expected.add_address(Address("Jane Weaver", "Tugusirna",
+                                     "Rowland", "1877/2"))
+        expected.add_address(Address("Rebecca Cunningham", "Murzuq",
+                                     "Heffernan", "2/3"))
+        expected.add_address(Address("Steven Pierce", "Matsena",
+                                     "Mariners Cove", "153/4"))
+        expected.add_address(WorkAddress("Jerzy Mardaus", "Kraków",
+                                         "Ślusarska", "9/1",
+                                         "Codecool Poland Sp. z o.o."))
+        expected.add_address(Address("Betty Jenkins", "Tirmiz",
+                                     "Hollow Ridge", "011/5"))
 
         return expected
 
