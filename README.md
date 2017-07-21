@@ -1,4 +1,5 @@
 # Address Book in OOP way
+**Please read this document carefully!**
 
 ## Final result expectation
 
@@ -35,9 +36,15 @@ Address List:
 ```
 
 # Specification
-Below you'll find specifications of classes that you should implement in order to pass the tests. Have in mind that this specification does not contain implementation details. It is your responsibility to decide which methods should be static or where to use inheritance and so on. Remember that you can and even should implement more classes to make your code better.
+Below you'll find specifications of classes that you should implement in order to pass the tests. Have in mind that this specification does not contain implementation details. **It is your responsibility to decide which methods should be static or where to use inheritance and etc.** Remember that you can implement more classes to make your code better.
 
-Specification is divided into three parts. We strongly recommend to do them in given order. Doing so will guarantee that you deliver something before the deadline.
+Specification is divided into three parts. First two are mandatory and the third one is optional (12pts). This means that you don't have to implement the UI in order to pass this exercise.
+
+## General rules
+* do not modify addresses.csv file because you might break the tests
+* you don't have to write docstrings during this assignment because time is short
+* even though you work alone please commit often and properly, make pushes after each part of the exercise
+* test your code often
 
 ## 1st part - classes
 
@@ -134,6 +141,7 @@ Searches through address book for a given phrase and returns a list of matching 
 Parameters:
 * `search_phrase` - string, that we're looking for
 
+### _please git push now_
 
 ## 2nd part - persistence
 ### `create_from_csv`
@@ -152,9 +160,11 @@ First row in CSV file contains column headers
 Have in mind that CSV file could contain both home and work addresses.
 
 ### `save_to_csv`
-Write `save_to_csv` method in AddressBook that saves all addresses in address book to a .csv file named `list_name`.csv
+Write `save_to_csv` method in AddressBook that saves all addresses in address book to a .csv file named `name`.csv
 
-## 3rd part - user interface
+### _please git push now_
+
+## 3rd part - user interface - optional
 ### main menu
 * `1. Create new address book` - asks for address book name and creates a new one, starts Address book menu.
 * `2. Open address book from file` - asks for address book name, loads address book from file, starts Address book menu
