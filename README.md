@@ -141,6 +141,10 @@ Searches through address book for a given phrase and returns a list of matching 
 Parameters:
 * `search_phrase` - string, that we're looking for
 
+
+##### `sort`
+Sorts addresses in `addresses` list alphabetically. You should implement your own sorting algorithm. Don't use built in `sort` and `sorted` functions.
+
 ### _please git push now_
 
 ## 2nd part - persistence
