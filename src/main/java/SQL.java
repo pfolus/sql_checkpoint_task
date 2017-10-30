@@ -38,7 +38,7 @@ public class SQL {
                 String birthYear = rs.getString("birthyear");
                 String gender = rs.getString("gender");
 
-                System.out.println("id: " + id);
+                System.out.println("customer id: " + id);
                 System.out.println("first name: " + firstName);
                 System.out.println("last name: " + lastName);
                 System.out.println("nick name: " + birthYear);
@@ -53,9 +53,9 @@ public class SQL {
                 int netValue = rs2.getInt("net_value");
                 int taxRate = rs2.getInt("tax_rate");
 
-                System.out.println("id: " + id2);
-                System.out.println("customer id: " + customerId);
                 System.out.println("product name: " + productName);
+                System.out.println("product id: " + id2);
+                System.out.println("customer id: " + customerId);
                 System.out.println("net value: " + netValue);
                 System.out.println("tax rate: " + taxRate);
                 System.out.println();
